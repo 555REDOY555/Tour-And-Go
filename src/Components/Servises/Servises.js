@@ -17,6 +17,9 @@ const Servises = () => {
 
      return (
           <div>
+               <h1 className="text-center my-5" >
+                    This is our best deals
+               </h1>
 
                <div className="row row-cols-1 row-cols-md-2 g-4 mx-4 my-5  ">
                     {
