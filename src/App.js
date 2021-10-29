@@ -7,6 +7,7 @@ import Servises from './Components/Servises/Servises';
 import Shipping from './Components/Shipping/Shipping';
 import Order from './Components/Order/Order';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MyOrder from './MyOrder/MyOrder';
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           </Route>
           <Route path="/order">
             <Order></Order>
+          </Route>
+          <Route path="/MyOrder" >
+            <MyOrder></MyOrder>
+
           </Route>
         </Switch>
         <Footer></Footer>

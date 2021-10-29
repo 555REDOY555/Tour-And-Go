@@ -10,7 +10,7 @@ const Order = () => {
      const onSubmit = data => {
 
 
-          fetch(`http://localhost:5000/order`, {
+          fetch(`http://localhost:7000/order`, {
                method: 'POST',
                headers: {
                     'content-type': 'application/json'

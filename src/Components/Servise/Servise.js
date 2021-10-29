@@ -3,8 +3,8 @@ import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Servise = (props) => {
-     const { name, img, price, _id } = props.all
+const Servise = ({ service }) => {
+     const { _id, name, price, img } = service;
      return (
           <div>
 
@@ -20,7 +20,7 @@ const Servise = (props) => {
                                    <h2 className="text-primary mb-3 " >
                                         {price}
                                    </h2>
-                                   <Link to={`/booking/${_id}`} ><Button className="btn btn-warning" >Book</Button></Link>
+                                   <Link to={`/order/${_id}`} ><Button className="btn btn-warning" >Book</Button></Link>
                               </div>
                          </div>
                     </div>

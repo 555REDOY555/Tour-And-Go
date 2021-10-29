@@ -14,7 +14,7 @@ const Header = () => {
                               <Nav className="d-flex justify-content-end">
                                    <Nav.Link className="navbar" as={HashLink} to="/home">Home</Nav.Link>
                                    <Nav.Link className="navbar" as={HashLink} to="/servise">Servise</Nav.Link>
-                                   <Nav.Link className="navbar" as={HashLink} to="/personal"> Businesses</Nav.Link>
+                                   <Nav.Link className="navbar" as={HashLink} to="/MyOrder">MyOrder</Nav.Link>
                                    <Nav.Link className="navbar" as={HashLink} to="/About">About</Nav.Link>
                                    {/* <div className=""> */}
 
@@ -40,14 +40,7 @@ const Header = () => {
                          </Navbar.Collapse>
                     </Container>
                </Navbar>
-               <div class="card bg-dark text-white">
-                    <img src="https://a0.muscache.com/im/pictures/57b9f708-bb12-498c-bc33-769f8fc43e63.jpg?im_w=2560" class="card-img" alt="..." />
-                    <div class="card-img-overlay">
-                         <h5 class="card-title">We will take you to your deram palace</h5>
-                         <p class="card-text"></p>
-                         <p class="card-text"></p>
-                    </div>
-               </div>
+
           </div>
      );
 };
