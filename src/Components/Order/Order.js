@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router';
+import useAuth from '../hook/useAuth';
 import './Order.css'
 
 const Order = () => {
      const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
+     const { _id } = useParams();
+     const [Order, setOrder] = useState([])
+     const { user } = useAuth()
 
 
-     const onSubmit = (data, err) => {
+
+     useEffect(() => {
+          fetch(`http://localhost:5000/Servises/${_id}`)
+               .then(res => res.json())
+               .then(data => setOrder(data))
+
+     }, [])
+
+     console.log(Order)
+
+     const onSubmit = (data) => {
 
 
           fetch(`http://localhost:5000/order`, {
@@ -24,9 +39,7 @@ const Order = () => {
                          alert('Order Successfuly')
                          reset()
                     }
-                    else {
-                         alert("this is here")
-                    }
+
                })
           console.log(data)
      }
@@ -34,10 +47,10 @@ const Order = () => {
           <div>
                <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
 
+                    <input defaultValue={user.displayName} {...register("name")} />
 
-                    <input  {...register("name")} />
-
-                    <input  {...register("email", { required: true })} />
+                    <input defaultValue={user.email} {...register("email", { required: true })} />
+                    <input defaultValue={Order?._id} {...register("service", { required: true })} />
                     {errors.email && <span className="error">This field is required</span>}
                     <input placeholder="Address" defaultValue="" {...register("address")} />
                     <input placeholder="City" defaultValue="" {...register("city")} />

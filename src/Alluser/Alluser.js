@@ -13,7 +13,7 @@ const Alluser = () => {
 
 
      useEffect(() => {
-          fetch(`http://localhost:5000/Servises`)
+          fetch(`http://localhost:5000/servises`)
                .then(res => res.json())
                .then(data => {
                     setServices(data);

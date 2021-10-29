@@ -5,7 +5,7 @@ const AddUser = () => {
      const { register, reset, handleSubmit, watch, formState: { errors } } = useForm();
      const onSubmit = data => {
 
-          fetch(`http://localhost:5000/Servises`, {
+          fetch(`http://localhost:5000/servises`, {
                method: 'POST',
                headers: {
                     'content-type': 'application/json'
