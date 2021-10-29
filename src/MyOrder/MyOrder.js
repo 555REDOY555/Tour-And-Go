@@ -9,12 +9,14 @@ const MyOrder = () => {
 
 
      useEffect(() => {
-          fetch(`http://localhost:7000/MyOrder/${email}`)
+          fetch(`http://localhost:5000/MyOrder/${email}`)
                .then(res => res.json())
                .then(data => setMyOrders(data))
      }, [])
 
      console.log(MyOrders);
+
+
 
      return (
           <div>
@@ -31,7 +33,7 @@ const MyOrder = () => {
                                              {orders?.price}
                                         </h2>
                                         <p>{orders?.description}</p>
-                                        <Link to='' ><Button className="btn btn-warning" >delate</Button></Link>
+                                        <Link to='' ><Button className="btn btn-danger" >delate</Button></Link>
                                    </div>
                               </div>)
                          }

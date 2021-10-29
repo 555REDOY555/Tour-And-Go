@@ -7,10 +7,10 @@ const Order = () => {
 
 
 
-     const onSubmit = data => {
+     const onSubmit = (data, err) => {
 
 
-          fetch(`http://localhost:7000/order`, {
+          fetch(`http://localhost:5000/order`, {
                method: 'POST',
                headers: {
                     'content-type': 'application/json'
@@ -23,6 +23,9 @@ const Order = () => {
                     if (result._id) {
                          alert('Order Successfuly')
                          reset()
+                    }
+                    else {
+                         alert("this is here")
                     }
                })
           console.log(data)

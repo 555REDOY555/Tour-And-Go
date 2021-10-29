@@ -20,7 +20,7 @@ const Servise = ({ service }) => {
                                    <h2 className="text-primary mb-3 " >
                                         {price}
                                    </h2>
-                                   <Link to={`/order/${_id}`} ><Button className="btn btn-warning" >Book</Button></Link>
+                                   <Link to={`/booking/${_id}`} ><Button className="btn btn-warning" >Book</Button></Link>
                               </div>
                          </div>
                     </div>

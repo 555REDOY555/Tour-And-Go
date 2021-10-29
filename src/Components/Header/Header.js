@@ -1,9 +1,12 @@
 import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import useAuth from '../hook/useAuth';
 
 const Header = () => {
+     const { user, logOut } = useAuth();
      return (
           <div>
                <Navbar sticky="top" bg="dark" expand="lg" variant="dark">
@@ -12,21 +15,29 @@ const Header = () => {
                          <Navbar.Toggle aria-controls="navbarScroll" />
                          <Navbar.Collapse id="navbarScroll">
                               <Nav className="d-flex justify-content-end">
-                                   <Nav.Link className="navbar" as={HashLink} to="/home">Home</Nav.Link>
+
                                    <Nav.Link className="navbar" as={HashLink} to="/servise">Servise</Nav.Link>
-                                   <Nav.Link className="navbar" as={HashLink} to="/MyOrder">MyOrder</Nav.Link>
                                    <Nav.Link className="navbar" as={HashLink} to="/About">About</Nav.Link>
-                                   {/* <div className=""> */}
+                                   {
+                                        user.email ?
+                                             <Nav.Link className="navbar" as={HashLink} to="/MyOrder">MyOrder</Nav.Link> : ""
 
+                                   }
+                                   {
+                                        user.email ?
+                                             <Nav.Link className="navbar" as={HashLink} to="/allServ">All Servises</Nav.Link> : ""
 
-
-                                   {/* <button onClick={logOut} className=" btn-info" >Log-Out</button>
-                                        : */}
-                                   <Nav.Link as={HashLink} to="/login">LogIn</Nav.Link>
-
-
-
-                                   {/* </div> */}
+                                   }
+                                   {
+                                        user.email ? <Nav.Link className="navbar" as={HashLink} to="/addUser">AddUser</Nav.Link> : ""
+                                   }
+                                   {user.email && <span style={{ color: 'white' }}>Hello {user.displayName} </span>}
+                                   {
+                                        user.email ?
+                                             <button className="btn btn-info" onClick={logOut}>log out</button>
+                                             :
+                                             <Nav.Link className="navbar" as={HashLink} to="/login">Login</Nav.Link>
+                                   }
                               </Nav>
                               <Form className="d-flex flex-fill mx-5">
                                    <FormControl

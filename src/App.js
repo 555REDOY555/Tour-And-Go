@@ -8,32 +8,47 @@ import Shipping from './Components/Shipping/Shipping';
 import Order from './Components/Order/Order';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyOrder from './MyOrder/MyOrder';
+import AuthProvider from './Components/Context/AuthProvider';
+import Login from './Components/LogIn/Login';
+import PrivatRoute from './Components/PrivatRoute/PrivatRoute';
+import AddUser from './AddUser/AddUser';
+import Alluser from './Alluser/Alluser';
 
 function App() {
   return (
     <div>
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <Servises></Servises>
-          </Route>
-          <Route path="/servise" >
-            <Servises></Servises>
-          </Route>
-          <Route path='/booking/:id' >
-            <Shipping></Shipping>
-          </Route>
-          <Route path="/order">
-            <Order></Order>
-          </Route>
-          <Route path="/MyOrder" >
-            <MyOrder></MyOrder>
-
-          </Route>
-        </Switch>
-        <Footer></Footer>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Servises></Servises>
+            </Route>
+            <Route path="/servise" >
+              <Servises></Servises>
+            </Route>
+            <Route path='/booking/:id' >
+              <Shipping></Shipping>
+            </Route>
+            <PrivatRoute path="/order">
+              <Order></Order>
+            </PrivatRoute>
+            <PrivatRoute path="/MyOrder" >
+              <MyOrder></MyOrder>
+            </PrivatRoute>
+            <Route path="/login" >
+              <Login></Login>
+            </Route>
+            <Route path="/allServ" >
+              <Alluser></Alluser>
+            </Route>
+            <Route path="/addUser" >
+              <AddUser></AddUser>
+            </Route>
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
 
     </div>
   );
