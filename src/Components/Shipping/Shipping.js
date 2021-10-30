@@ -59,9 +59,9 @@ const Shipping = () => {
                          <input defaultValue={user.email} {...register("email", { required: true })} />
                          <input defaultValue={id} {...register("service",)} />
                          {errors.email && <span className="error">This field is required</span>}
-                         <input placeholder="Address" defaultValue="" {...register("address")} />
-                         <input placeholder="City" defaultValue="" {...register("city")} />
-                         <input placeholder="phone number" defaultValue="" {...register("phone")} />
+                         <input placeholder="Address" defaultValue="" {...register("address", { required: true })} />
+                         <input placeholder="City" defaultValue="" {...register("city", { required: true })} />
+                         <input placeholder="phone number" defaultValue="" {...register("phone", { required: true })} />
 
                          <input type="submit" />
                     </form>

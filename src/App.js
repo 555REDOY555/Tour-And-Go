@@ -14,6 +14,7 @@ import PrivatRoute from './Components/PrivatRoute/PrivatRoute';
 import AddUser from './AddUser/AddUser';
 import Alluser from './Alluser/Alluser';
 import About from './Aboit/About';
+import AllOrders from './All Orders/AllOrders';
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
             </Route>
             <Route path="/allServ" >
               <Alluser></Alluser>
+            </Route>
+            <Route path="/allOrder" >
+              <AllOrders></AllOrders>
             </Route>
             <Route path="/addUser" >
               <AddUser></AddUser>
