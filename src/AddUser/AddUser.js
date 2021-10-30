@@ -16,7 +16,7 @@ const AddUser = () => {
                .then(res => res.json())
                .then(result => {
                     if (result.insertedId) {
-                         alert('Order Successfuly')
+                         alert('Added Successfuly')
                          reset()
                     }
                })

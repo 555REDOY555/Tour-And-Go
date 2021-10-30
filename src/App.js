@@ -13,6 +13,7 @@ import Login from './Components/LogIn/Login';
 import PrivatRoute from './Components/PrivatRoute/PrivatRoute';
 import AddUser from './AddUser/AddUser';
 import Alluser from './Alluser/Alluser';
+import About from './Aboit/About';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
             </PrivatRoute>
             <PrivatRoute path="/MyOrder" >
               <MyOrder></MyOrder>
+            </PrivatRoute>
+            <PrivatRoute path="/About" >
+              <About></About>
             </PrivatRoute>
             <Route path="/login" >
               <Login></Login>

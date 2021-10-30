@@ -22,7 +22,7 @@ const Alluser = () => {
      const handleDeleteUser = id => {
           const proceed = window.confirm('Are you sure, you want to delete?');
           if (proceed) {
-               const url = `http://localhost:5000/delete/${id}`;
+               const url = `http://localhost:5000/servises/${id}`;
                fetch(url, {
                     method: 'DELETE'
                })
@@ -40,7 +40,7 @@ const Alluser = () => {
           <div>
                <div className="row row-cols-1 row-cols-md-2 g-4 mx-4 my-5  ">
                     {
-                         services.map((service, index) => <div className="card    ">
+                         services.map((service) => <div className="card    ">
                               <img src={service?.img} className="card-img-top img-fluid  " alt="..." />
                               <div className="card-body">
                                    <h5 className="card-title">{service?.name}</h5>
