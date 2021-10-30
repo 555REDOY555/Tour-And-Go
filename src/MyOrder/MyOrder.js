@@ -13,7 +13,7 @@ const MyOrder = () => {
      const email = user.email;
 
      useEffect(() => {
-          fetch(`http://localhost:5000/myOrders/${email}`)
+          fetch(`https://nameless-hamlet-63339.herokuapp.com/myOrders/${email}`)
                .then((res) => res.json())
                .then((data) => setOrders(data));
      }, [email]);
@@ -22,7 +22,7 @@ const MyOrder = () => {
      const handleDeleteProduct = (id) => {
           console.log(id);
 
-          fetch(`http://localhost:5000/deleteProduct/${id}`, {
+          fetch(`https://nameless-hamlet-63339.herokuapp.com/deleteProduct/${id}`, {
                method: "DELETE",
                headers: { "Content-type": "application/json" },
           })
