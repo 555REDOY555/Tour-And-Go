@@ -5,7 +5,7 @@ const AddUser = () => {
      const { register, reset, handleSubmit, watch, formState: { errors } } = useForm();
      const onSubmit = data => {
 
-          fetch(`http://localhost:5000/servises`, {
+          fetch(`https://nameless-hamlet-63339.herokuapp.com/servises`, {
                method: 'POST',
                headers: {
                     'content-type': 'application/json'
