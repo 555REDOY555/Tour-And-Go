@@ -16,7 +16,7 @@ const Shipping = () => {
 
      useEffect(() => {
 
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/servises/${id}`)
+          fetch(`http://localhost:5000/Servises/${id}`)
                .then(res => res.json())
                .then(data => setBooking(data))
 
@@ -24,7 +24,7 @@ const Shipping = () => {
 
      const onSubmit = data => {
 
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/order`, {
+          fetch(`http://localhost:5000/order`, {
                method: 'POST',
                headers: {
                     'content-type': 'application/json'
@@ -49,22 +49,40 @@ const Shipping = () => {
      console.log(booking)
      return (
           <div>
+               <h1>{booking.name}</h1>
 
-               <div className="card    ">
+               <div className="row">
+                    <div className="col-md-6">
+                         <div className="card    ">
+                              <img src={booking.img} className="card-img-top img-fluid  " alt="..." />
+                              <div className="card-body">
+                                   <h5 className="card-title">{booking.name}</h5>
+                                   <p className="card-text text-primary ">{booking.description}</p>
+                                   <h2 className="text-primary mb-3 " >
+                                        {booking.price}
+                                   </h2>
 
-                    <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
+                              </div>
+                         </div>
+                    </div>
+                    <div className="col-md-6">
+                         <div className="card    ">
 
-                         <input defaultValue={user.displayName} {...register("name")} />
+                              <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>
 
-                         <input defaultValue={user.email} {...register("email", { required: true })} />
-                         <input defaultValue={id} {...register("service",)} />
-                         {errors.email && <span className="error">This field is required</span>}
-                         <input placeholder="Address" defaultValue="" {...register("address", { required: true })} />
-                         <input placeholder="City" defaultValue="" {...register("city", { required: true })} />
-                         <input placeholder="phone number" defaultValue="" {...register("phone", { required: true })} />
+                                   <input defaultValue={user.displayName} {...register("name")} />
 
-                         <input type="submit" />
-                    </form>
+                                   <input defaultValue={user.email} {...register("email", { required: true })} />
+                                   <input defaultValue={id} {...register("service",)} />
+                                   {errors.email && <span className="error">This field is required</span>}
+                                   <input placeholder="Address" defaultValue="" {...register("address", { required: true })} />
+                                   <input placeholder="City" defaultValue="" {...register("city", { required: true })} />
+                                   <input placeholder="phone number" defaultValue="" {...register("phone", { required: true })} />
+
+                                   <input type="submit" />
+                              </form>
+                         </div>
+                    </div>
                </div>
 
           </div>
