@@ -8,6 +8,7 @@ const MyOrder = () => {
      const { user } = useAuth()
      const [orders, setOrders] = useState([]);
      const [users, setUsers] = useState([]);
+     const [services, setServices] = useState([])
      const [isDelete, setIsDelete] = useState(null);
 
      const email = user.email;
@@ -15,44 +16,53 @@ const MyOrder = () => {
      useEffect(() => {
           fetch(`http://localhost:5000/myOrders/${email}`)
                .then((res) => res.json())
-               .then((data) => setOrders(data));
+               .then((data) => setServices(data));
      }, [email]);
      console.log(orders);
 
-     const handleDeleteProduct = (id) => {
-          console.log(id);
-
-          fetch(`http://localhost:5000/deleteProduct/${id}`, {
-               method: "DELETE",
-               headers: { "Content-type": "application/json" },
-          })
-               .then((res) => res.json())
-               .then((result) => {
-                    if (result.deletedCount) {
-                         setIsDelete(true);
-                    } else {
-                         setIsDelete(false);
-                    }
-               });
-     };
+     const handleDeleteUser = id => {
+          const proceed = window.confirm('Are you sure, you want to delete?');
+          if (proceed) {
+               const url = `http://localhost:5000/servises/${id}`;
+               fetch(url, {
+                    method: 'DELETE'
+               })
+                    .then(res => res.json())
+                    .then(data => {
+                         if (data.deletedCount > 0) {
+                              alert('deleted successfully');
+                              const remainingUsers = users.filter(user => user._id !== id);
+                              setUsers(remainingUsers);
+                         }
+                    });
+          }
+     }
      return (
           <div>
-               <h1 className="text-center mb-4" >I am Dashboard {orders.length}</h1>
-               <div className="all-products">
-                    <div className="row container text-center">
-                         {orders?.map((pd, index) => (
-                              <div className="col-md-6 col-lg-4">
-                                   <div className=" border border p-2 m-2">
-                                        <h4>{pd.email}</h4>
-                                        <h5>{pd?.name}</h5>
-                                        <h5>{pd?.price}</h5>
-                                        <h6>{pd?._id}</h6>
-                                        <Button className="btn btn-danger" onClick={() => handleDeleteProduct(pd?._id)} >
-                                             Delete order
-                                        </Button>
+
+               <div>
+
+                    <div className="row row-cols-1 row-cols-md-2 g-4 mx-4 my-5  ">
+                         {
+                              services.map((service) => <div className="">
+
+                                   <div className="card    ">
+
+                                        <div className="card-body">
+                                             <h5 className="card-title">{service?.name}</h5>
+                                             <p className="card-text text-primary "></p>
+                                             <h2 className="text-primary mb-3 " >service
+                                                  :
+                                                  {service?.service
+                                                  }
+                                             </h2>
+                                             <p>{service?.phone}</p>
+                                             <Link to='' ><Button onClick={() => handleDeleteUser(service._id)} className="btn btn-warning text-center " >DELETE</Button></Link>
+                                        </div>
                                    </div>
-                              </div>
-                         ))}
+                              </div>)
+                         }
+
                     </div>
                </div>
           </div>
