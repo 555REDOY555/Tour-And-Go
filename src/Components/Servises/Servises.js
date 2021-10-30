@@ -24,7 +24,7 @@ const Servises = () => {
      return (
           <div>
                <div class="card  pb-5">
-                    <img src='https://www.wpa.org.uk/_nuxt/img/autumn-leaves-floating.7dc6686.jpg' class="card-img   " alt="..." />
+                    <img src='https://a0.muscache.com/im/pictures/57b9f708-bb12-498c-bc33-769f8fc43e63.jpg?im_w=2560' class="card-img   " alt="..." />
                     <div class="card-img-overlay">
                          <h5 class="card-title Home-h3-tag-banner text-white ">Homepage</h5>
                          <p class="card-text text-white"><h1 className="Home-h1-tag-banner"></h1></p>
