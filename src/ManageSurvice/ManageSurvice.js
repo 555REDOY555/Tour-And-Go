@@ -7,7 +7,7 @@
 
 
 //      useEffect(() => {
-//           fetch(`http://localhost:5000/servises`)
+//           fetch(`https://nameless-hamlet-63339.herokuapp.com/servises`)
 //                .then(res => res.json())
 //                .then(data => {
 //                     setServices(data);
