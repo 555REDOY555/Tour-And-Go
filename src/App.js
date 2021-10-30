@@ -15,6 +15,7 @@ import AddUser from './AddUser/AddUser';
 import Alluser from './Alluser/Alluser';
 import About from './Aboit/About';
 import AllOrders from './All Orders/AllOrders';
+import Businesses from './begness/Businesses';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <PrivatRoute path='/booking/:id' >
               <Shipping></Shipping>
+            </PrivatRoute>
+            <PrivatRoute path='/Businesses' >
+              <Businesses></Businesses>
             </PrivatRoute>
             <PrivatRoute path="/order">
               <Order></Order>
