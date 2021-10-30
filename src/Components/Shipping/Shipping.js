@@ -16,7 +16,7 @@ const Shipping = () => {
 
      useEffect(() => {
 
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/Servises/${id}`)
+          fetch(`http://localhost:5000/Servises/${id}`)
                .then(res => res.json())
                .then(data => setBooking(data))
 
@@ -24,7 +24,7 @@ const Shipping = () => {
 
      const onSubmit = data => {
 
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/order`, {
+          fetch(`http://localhost:5000/order`, {
                method: 'POST',
                headers: {
                     'content-type': 'application/json'
@@ -66,6 +66,7 @@ const Shipping = () => {
                          </div>
                     </div>
                     <div className="col-md-6">
+                         <h1>Full the form for order</h1>
                          <div className="card    ">
 
                               <form className="shipping-form" onSubmit={handleSubmit(onSubmit)}>

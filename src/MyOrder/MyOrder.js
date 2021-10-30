@@ -14,7 +14,7 @@ const MyOrder = () => {
      const email = user.email;
 
      useEffect(() => {
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/myOrders/${email}`)
+          fetch(`http://localhost:5000/myOrders/${email}`)
                .then((res) => res.json())
                .then((data) => setServices(data));
      }, [email]);
@@ -23,7 +23,7 @@ const MyOrder = () => {
      const handleDeleteUser = id => {
           const proceed = window.confirm('Are you sure, you want to delete?');
           if (proceed) {
-               const url = `https://nameless-hamlet-63339.herokuapp.com/order/${id}`;
+               const url = `http://localhost:5000/order/${id}`;
                fetch(url, {
                     method: 'DELETE'
                })
