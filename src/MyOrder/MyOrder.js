@@ -4,65 +4,59 @@ import { Link } from 'react-router-dom';
 import useAuth from '../Components/hook/useAuth';
 
 const MyOrder = () => {
-     const { user } = useAuth();
 
-     const email = user.email
-
-     const [MyOrders, setMyOrders] = useState([])
+     const { user } = useAuth()
+     const [orders, setOrders] = useState([]);
      const [users, setUsers] = useState([]);
+     const [isDelete, setIsDelete] = useState(null);
 
+     const email = user.email;
 
      useEffect(() => {
-          fetch(`http://localhost:5000/order/${email}`)
-               .then(res => res.json())
-               .then(data => setMyOrders(data))
-     }, [])
+          fetch(`http://localhost:5000/myOrders/${email}`)
+               .then((res) => res.json())
+               .then((data) => setOrders(data));
+     }, [email]);
+     console.log(orders);
 
-     const handleDeleteUser = id => {
-          const proceed = window.confirm('Are you sure, you want to delete?');
-          if (proceed) {
-               const url = `http://localhost:5000/order/${id}`;
-               fetch(url, {
-                    method: 'DELETE'
-               })
-                    .then(res => res.json())
-                    .then(data => {
-                         if (data.deletedCount > 0) {
-                              alert('deleted successfully');
-                              const remainingUsers = users.filter(user => user._id !== id);
-                              setUsers(remainingUsers);
-                         }
-                    });
-          }
-     }
+     const handleDeleteProduct = (id) => {
+          console.log(id);
 
-     console.log(MyOrders);
-
-
-
+          fetch(`http://localhost:5000/deleteProduct/${id}`, {
+               method: "DELETE",
+               headers: { "Content-type": "application/json" },
+          })
+               .then((res) => res.json())
+               .then((result) => {
+                    if (result.deletedCount) {
+                         setIsDelete(true);
+                    } else {
+                         setIsDelete(false);
+                    }
+               });
+     };
      return (
           <div>
-               <h1 className="text-center" >This is my orders {MyOrders.length}</h1>
-               <div className="allOrders">
-                    <div className="row container text-center ">
-                         {
-                              MyOrders.map(orders => <div className="card m-4 bg-info  ">
-
-                                   <div className="card-body">
-                                        <h5 className="card-title">{orders?._id}</h5>
-                                        <p className="card-text text-primary "></p>
-                                        <h2 className="text-primary mb-3 " >
-                                             {orders?.city}
-                                        </h2>
-                                        <p>{orders?.description}</p>
-                                        <Link to='' ><Button onClick={() => handleDeleteUser(MyOrders._id)} className="btn btn-danger" >delate</Button></Link>
+               <h1 className="text-center mb-4" >I am Dashboard {orders.length}</h1>
+               <div className="all-products">
+                    <div className="row container text-center">
+                         {orders?.map((pd, index) => (
+                              <div className="col-md-6 col-lg-4">
+                                   <div className=" border border p-2 m-2">
+                                        <h4>{pd.email}</h4>
+                                        <h5>{pd?.name}</h5>
+                                        <h5>{pd?.price}</h5>
+                                        <h6>{pd?._id}</h6>
+                                        <Button className="btn btn-danger" onClick={() => handleDeleteProduct(pd?._id)} >
+                                             Delete order
+                                        </Button>
                                    </div>
-                              </div>)
-                         }
+                              </div>
+                         ))}
                     </div>
                </div>
           </div>
-     );
+     )
 };
 
 export default MyOrder;
