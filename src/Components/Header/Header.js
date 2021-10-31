@@ -21,7 +21,7 @@ const Header = () => {
                                    <Nav.Link className="navbar" as={HashLink} to="/Businesses">Businesses</Nav.Link>
                                    {
                                         user.email ?
-                                             <Nav.Link className="navbar" as={HashLink} to="/MyOrder">MyOrder</Nav.Link> : ""
+                                             <Nav.Link className="navbar" as={HashLink} to="/MyOrder">My Order</Nav.Link> : ""
 
                                    }
                                    {
@@ -31,7 +31,7 @@ const Header = () => {
                                    }
                                    {
                                         user.email ?
-                                             <Nav.Link className="navbar" as={HashLink} to="/allServ">All Servises</Nav.Link> : ""
+                                             <Nav.Link className="navbar" as={HashLink} to="/allServ">Add A New Service</Nav.Link> : ""
 
                                    }
                                    {
