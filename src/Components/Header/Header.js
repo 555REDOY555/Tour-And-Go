@@ -31,11 +31,11 @@ const Header = () => {
                                    }
                                    {
                                         user.email ?
-                                             <Nav.Link className="navbar" as={HashLink} to="/allServ">Add A New Service</Nav.Link> : ""
+                                             <Nav.Link className="navbar" as={HashLink} to="/allServ">Manage All Service</Nav.Link> : ""
 
                                    }
                                    {
-                                        user.email ? <Nav.Link className="navbar" as={HashLink} to="/addUser">AddUser</Nav.Link> : ""
+                                        user.email ? <Nav.Link className="navbar" as={HashLink} to="/addUser">Add A New Service</Nav.Link> : ""
                                    }
                                    {user.email && <span style={{ color: 'white' }}>Hello {user.displayName} </span>}
                                    {
