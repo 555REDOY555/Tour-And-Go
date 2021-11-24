@@ -12,7 +12,7 @@ const Servises = () => {
 
 
      useEffect(() => {
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/servises`)
+          fetch(`https://infinite-hamlet-14555.herokuapp.com/servises`)
                .then(res => res.json())
                .then(data => {
                     setServices(data);

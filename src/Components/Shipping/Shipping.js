@@ -16,7 +16,7 @@ const Shipping = () => {
 
      useEffect(() => {
 
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/Servises/${id}`)
+          fetch(`https://infinite-hamlet-14555.herokuapp.com/Servises/${id}`)
                .then(res => res.json())
                .then(data => setBooking(data))
 
@@ -24,7 +24,7 @@ const Shipping = () => {
 
      const onSubmit = data => {
 
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/order`, {
+          fetch(`https://infinite-hamlet-14555.herokuapp.com/order`, {
                method: 'POST',
                headers: {
                     'content-type': 'application/json'

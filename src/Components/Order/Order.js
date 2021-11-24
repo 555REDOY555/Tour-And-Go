@@ -15,7 +15,7 @@ const Order = () => {
 
 
      useEffect(() => {
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/servises/${id}`)
+          fetch(`https://infinite-hamlet-14555.herokuapp.com/servises/${id}`)
                .then(res => res.json())
                .then(data => setOrder(data))
 

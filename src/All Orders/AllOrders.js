@@ -13,7 +13,7 @@ const AllOrders = () => {
 
 
      useEffect(() => {
-          fetch(`https://nameless-hamlet-63339.herokuapp.com/order`)
+          fetch(`https://infinite-hamlet-14555.herokuapp.com/order`)
                .then(res => res.json())
                .then(data => {
                     setServices(data);
@@ -22,7 +22,7 @@ const AllOrders = () => {
      const handleDeleteUser = id => {
           const proceed = window.confirm('Are you sure, you want to delete?');
           if (proceed) {
-               const url = `https://nameless-hamlet-63339.herokuapp.com/order/${id}`;
+               const url = `https://infinite-hamlet-14555.herokuapp.com/order/${id}`;
                fetch(url, {
                     method: 'DELETE'
                })
